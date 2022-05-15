@@ -1,0 +1,39 @@
+<MyGrid>
+
+	f_name:name_1
+	l_name:name_2
+	email:user_email
+
+	GridLayout:
+		cols:1
+		size: root.width, root.height
+		
+		GridLayout:  # copy your class name
+			cols:2
+			
+			Label:
+				text: "FirstName: "
+			TextInput:
+				id: name_1
+				multiline:False
+			
+			Label:
+				text: "LastName: "		
+			TextInput:
+				id: name_2
+				multiline:False
+
+
+			Label:
+				text: "Email: "		
+			TextInput:
+				id: user_email
+				multiline:False
+			
+		Button:
+			text: "Submit"
+			on_press: root.btn()
+
+
+
+

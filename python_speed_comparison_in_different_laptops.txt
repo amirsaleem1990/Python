@@ -1,0 +1,22 @@
+import time
+for x in range(2):
+    s = time.time()
+    for i in range(10_000):
+        str(i**i)
+    print(time.time() - s)
+
+
+Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz   1.99 GH
+	Windows:
+		113 | 1.8374
+		Ubuntu IN Windows:
+			72.5 | 1.178
+	Linux:
+		61.5 | 100 (base time)
+		Without GUI:
+			58.52 | 0.95
+
+
+
+76 shayan laptop, Windows, CI7, 11th gen, 2.8GH
+86 umair laptop, Windows, Ci7, 7th gen, 3.1GH

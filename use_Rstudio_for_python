@@ -1,0 +1,12 @@
+open Rstudio
+> reticulate::repl_python()
+now you are in python mode.
+enjoy... :p
+
+
+# NOTE:
+this was before rstudio 1.4 version, after 1.4 version:
+	settings >> global >> python
+	choose python interpreter
+	create .py file
+	start coding

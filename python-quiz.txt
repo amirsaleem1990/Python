@@ -1,0 +1,1158 @@
+'Python Functions, Files, and Dictionaries' (2nd course from 'Python 3 Programming Specialization')
+#https://www.coursera.org/learn/python-functions-files-dictionaries?specialization=python-3-programming
+
+# --------------------------- Assessment: Files and CSV
+
+# The textfile, travel_plans.txt, contains the summer travel plans for someone with some commentary. Find the total number of characters in the file and save to the variable num.
+num = len(open("travel_plans.txt", 'r').read())
+
+
+# We have provided a file called emotion_words.txt that contains lines of words that describe emotions. Find the total number of words in the file and assign this value to the variable num_words.
+num_words = len(open("emotion_words.txt", 'r').read().split())
+
+# Assign to the variable num_lines the number of lines in the file school_prompt.txt.
+num_lines = len(open('school_prompt.txt', 'r').read().splitlines())
+
+# Assign the first 30 characters of school_prompt.txt as a string to the variable beginning_chars.
+beginning_chars= open("school_prompt.txt", 'r').read()[:30]
+
+# Challenge: Using the file school_prompt.txt, assign the third word of every line to a list called three.
+three = [i.split()[2] for i in open("school_prompt.txt", 'r').read().splitlines()]
+
+# Challenge: Create a list called emotions that contains the first word of every line in emotion_words.txt.
+emotions = [i.split()[0] for i in open("emotion_words.txt", 'r').read().splitlines()]
+
+# Assign the first 33 characters from the textfile, travel_plans.txt to the variable first_chars.
+first_chars = open("travel_plans.txt", 'r').read()[:33]
+
+# Challenge: Using the file school_prompt.txt, if the character ‘p’ is in a word, then add the word to a list called p_words.
+p_words = [i for i in open("school_prompt.txt", 'r').read().split() if 'p' in i]
+
+
+#----------- Assessment: Dictionary Mechanics
+# At the halfway point during the Rio Olympics, the United States had 70 medals, Great Britain had 38 medals, China had 45 medals, Russia had 30 medals, and Germany had 17 medals. Create a dictionary assigned to the variable medal_count with the country names as the keys and the number of medals the country had as each key’s value.
+medal_count = {
+    "United States" : 70,
+    "Great Britain" : 38,
+    "China" : 45,
+    "Russia" : 30,
+    "Germany" : 17
+}
+
+# Given the dictionary swimmers, add an additional key-value pair to the dictionary with "Phelps" as the key and the integer 23 as the value. Do not rewrite the entire dictionary.
+swimmers = {'Manuel':4, 'Lochte':12, 'Adrian':7, 'Ledecky':5, 'Dirado':4}
+swimmers['Phelps'] = 23
+
+# Add the string “hockey” as a key to the dictionary sports_periods and assign it the value of 3. Do not rewrite the entire dictionary.
+sports_periods = {'baseball': 9, 'basketball': 4, 'soccer': 4, 'cricket': 2}
+sports_periods['hockey'] = 3
+
+# The dictionary golds contains information about how many gold medals each country won in the 2016 Olympics. But today, Spain won 2 more gold medals. Update golds to reflect this information.
+golds = {"Italy": 12, "USA": 33, "Brazil": 15, "China": 27, "Spain": 19, "Canada": 22, "Argentina": 8, "England": 29}
+golds['Spain'] += 2
+
+# Create a list of the countries that are in the dictionary golds, and assign that list to the variable name countries. Do not hard code this.
+golds = {"Italy": 12, "USA": 33, "Brazil": 15, "China": 27, "Spain": 19, "Canada": 22, "Argentina": 8, "England": 29}
+countries = list(golds.keys())
+
+
+# Provided is the dictionary, medal_count, which lists countries and their respective medal count at the halfway point in the 2016 Rio Olympics. Using dictionary mechanics, assign the medal count value for "Belarus" to the variable belarus. Do not hardcode this.
+medal_count = {'United States': 70, 'Great Britain':38, 'China':45, 'Russia':30, 'Germany':17, 'Italy':22, 'France': 22, 'Japan':26, 'Australia':22, 'South Korea':14, 'Hungary':12, 'Netherlands':10, 'Spain':5, 'New Zealand':8, 'Canada':13, 'Kazakhstan':8, 'Colombia':4, 'Switzerland':5, 'Belgium':4, 'Thailand':4, 'Croatia':3, 'Iran':3, 'Jamaica':3, 'South Africa':7, 'Sweden':6, 'Denmark':7, 'North Korea':6, 'Kenya':4, 'Brazil':7, 'Belarus':4, 'Cuba':5, 'Poland':4, 'Romania':4, 'Slovenia':3, 'Argentina':2, 'Bahrain':2, 'Slovakia':2, 'Vietnam':2, 'Czech Republic':6, 'Uzbekistan':5}
+belarus = medal_count['Belarus']
+
+
+# The dictionary total_golds contains the total number of gold medals that countries have won over the course of history. Use dictionary mechanics to find the number of golds Chile has won, and assign that number to the variable name chile_golds. Do not hard code this!
+total_golds = {"Italy": 114, "Germany": 782, "Pakistan": 10, "Sweden": 627, "USA": 2681, "Zimbabwe": 8, "Greece": 111, "Mongolia": 24, "Brazil": 108, "Croatia": 34, "Algeria": 15, "Switzerland": 323, "Yugoslavia": 87, "China": 526, "Egypt": 26, "Norway": 477, "Spain": 133, "Australia": 480, "Slovakia": 29, "Canada": 22, "New Zealand": 100, "Denmark": 180, "Chile": 13, "Argentina": 70, "Thailand": 24, "Cuba": 209, "Uganda": 7,  "England": 806, "Denmark": 180, "Ukraine": 122, "Bahamas": 12}
+chile_golds = total_golds['Chile']
+
+# Provided is a dictionary called US_medals which has the first 70 metals that the United States has won in 2016, and in which category they have won it in. Using dictionary mechanics, assign the value of the key "Fencing" to a variable fencing_value. Remember, do not hard code this.
+US_medals = {"Swimming": 33, "Gymnastics": 6, "Track & Field": 6, "Tennis": 3, "Judo": 2, "Rowing": 2, "Shooting": 3, "Cycling - Road": 1, "Fencing": 4, "Diving": 2, "Archery": 2, "Cycling - Track": 1, "Equestrian": 2, "Golf": 1, "Weightlifting": 1}
+fencing_value = US_medals['Fencing']
+
+
+# ------------------------ Assessment: Dictionary Accumulation
+
+The dictionary Junior shows a schedule for a junior year semester. The key is the course name and the value is the number of credits. Find the total number of credits taken this semester and assign it to the variable credits. Do not hardcode this – use dictionary accumulation!
+Junior = {'SI 206':4, 'SI 310':4, 'BL 300':3, 'TO 313':3, 'BCOM 350':1, 'MO 300':3}
+credits = sum(list(Junior.values()))
+
+# Create a dictionary, freq, that displays each character in string str1 as the key and its frequency as the value.
+str1 = "peter piper picked a peck of pickled peppers"
+freq = {}
+for i in str1:
+    freq[i] = (freq.get(i,0) + 1)
+
+# Provided is a string saved to the variable name s1. Create a dictionary named counts that contains each letter in s1 and the number of times it occurs.
+s1 = "hello"
+counts = {}
+for i in s1:
+    counts[i] = counts.get(i, 0) + 1
+
+# Create a dictionary, freq_words, that contains each word in string str1 as the key and its frequency as the value.
+str1 = "I wish I wish with all my heart to fly with dragons in a land apart"
+freq_words = {}
+for i in str1.split():
+    freq_words[i] = freq_words.get(i, 0) + 1
+
+# Create a dictionary called wrd_d from the string sent, so that the key is a word and the value is how many times you have seen that word.
+sent = "Singing in the rain and playing in the rain are two entirely different situations but both can be good"
+wrd_d = {}
+for i in sent.split():
+    wrd_d[i] = wrd_d.get(i, 0) + 1
+
+# Create the dictionary characters that shows each character from the string sally and its frequency. Then, find the most frequent letter based on the dictionary. Assign this letter to the variable best_char.
+sally = "sally sells sea shells by the sea shore"
+characters = {}
+for i in sally:
+    characters[i] = characters.get(i, 0) + 1
+#print(sorted(characters, key=len))
+#best_char = sorted(characters, key=len)[0]
+for k,v in characters.items():
+    if v == max(list(characters.values())):
+        break
+best_char = k
+
+# Find the least frequent letter. Create the dictionary characters that shows each character from string sally and its frequency. Then, find the least frequent letter in the string and assign the letter to the variable worst_char.
+sally = "sally sells sea shells by the sea shore and by the road"
+characters = {}
+for i in sally:
+    characters[i] = characters.get(i, 0) + 1
+#worst_char = sorted(characters, key=len)[-1]
+for k,v in characters.items():
+    if v == min(list(characters.values())):
+        break
+worst_char = k
+
+# Create a dictionary named letter_counts that contains each letter and the number of times it occurs in string1. Challenge: Letters should not be counted separately as upper-case and lower-case. Intead, all of them should be counted as lower-case.
+string1 = "There is a tide in the affairs of men, Which taken at the flood, leads on to fortune. Omitted, all the voyage of their life is bound in shallows and in miseries. On such a full sea are we now afloat. And we must take the current when it serves, or lose our ventures."
+letter_counts = {}
+for i in string1.lower():
+    letter_counts[i] = letter_counts.get(i, 0) + 1
+
+# Create a dictionary called low_d that keeps track of all the characters in the string p and notes how many times each character was seen. Make sure that there are no repeats of characters as keys, such that “T” and “t” are both seen as a “t” for example.
+p = "Summer is a great time to go outside. You have to be careful of the sun though because of the heat."
+low_d = {}
+for i in p.lower():
+    low_d[i] = low_d.get(i, 0) + 1
+
+# ---------------------------- Assessment: Functions
+
+# Write a function called int_return that takes an integer as input and returns the same integer.
+def int_return(x):
+    return x
+
+# Write a function called add that takes any number as its input and returns that sum with 2 added.
+def add(x):
+    return x+2
+
+# Write a function called change that takes any string, adds “Nice to meet you!” to the end of the argument given, and returns that new string.
+def change(string):
+    return string + "Nice to meet you!"
+
+# Write a function, accum, that takes a list of integers as input and returns the sum of those integers.
+def accum(lst):
+    return sum(lst)
+
+# Write a function, length, that takes in a list as the input. If the length of the list is greater than or equal to 5, return “Longer than 5”. If the length is less than 5, return “Less than 5”.
+def length(lst):
+    return 'Longer than 5' if len(lst) >= 5 else 'Less than 5'
+
+# You will need to write two functions for this problem. The first function, divide that takes in any number and returns that same number divided by 2. The second function called sum should take any number, divide it by 2, and add 6. It should return this new number. You should call the divide function within the sum function. Do not worry about decimals.
+def divide(x):
+    return x/2
+
+def sum(x):
+    return divide(x) + 6
+
+#--------------------------------- Assessment: Tuples
+
+# Create a tuple called olympics with four elements: “Beijing”, “London”, “Rio”, “Tokyo”.
+olympics = ("Beijing", "London", "Rio", "Tokyo")
+
+# The list below, tuples_lst, is a list of tuples. Create a list of the second elements of each tuple and assign this list to the variable country.
+tuples_lst = [('Beijing', 'China', 2008), ('London', 'England', 2012), ('Rio', 'Brazil', 2016, 'Current'), ('Tokyo', 'Japan', 2020, 'Future')]
+country = [i[1] for i in tuples_lst]
+
+# With only one line of code, assign the variables city, country, and year to the values of the tuple olymp.
+olymp = ('Rio', 'Brazil', 2016)
+city, country, year =  olymp
+
+# Define a function called info with five parameters: name, gender, age, bday_month, and hometown. The function should then return a tuple with all five parameters in that order.
+def info(name, gender, age, bday_month, hometown):
+    return (name, gender, age, bday_month, hometown)
+
+# Given is the dictionary, gold, which shows the country and the number of gold medals they have earned so far in the 2016 Olympics. Create a list, num_medals, that contains only the number of medals for each country. You must use the .items() method. Note: The .items() method provides a list of tuples. Do not use .keys() method.
+gold = {'USA':31, 'Great Britain':19, 'China':19, 'Germany':13, 'Russia':12, 'Japan':10, 'France':8, 'Italy':8}
+num_medals = []
+for k,v in gold.items():
+    num_medals.append(v)
+
+# -------------------------------------- Assessment: More about Iteration
+
+# Write a function, sublist, that takes in a list of numbers as the parameter. In the function, use a while loop to return a sublist of the input list. The sublist should contain the same values of the original list up until it reaches the number 5 (it should not contain the number 5).
+def sublist(lst):
+    return lst[:5 if len(lst) == 5 else 4 if len(lst) > 5 else  -1]
+
+# Write a function called check_nums that takes a list as its parameter, and contains a while loop that only stops once the element of the list is the number 7. What is returned is a list of all of the numbers up until it reaches 7.
+def check_nums(lst):
+    x = []
+    n = 0
+    while n < len(lst):
+        if lst[n] == 7:
+            break
+        x.append(lst[n])
+        n += 1
+    return x
+
+# Write a function, sublist, that takes in a list of strings as the parameter. In the function, use a while loop to return a sublist of the input list. The sublist should contain the same values of the original list up until it reaches the string “STOP” (it should not contain the string “STOP”).
+def sublist(lst):
+    n = 0
+    x = []
+    while len(lst) > n:
+        if lst[n] == "STOP":
+            break
+        x.append(lst[n])
+        n += 1
+    return x
+
+# Write a function called stop_at_z that iterates through a list of strings. Using a while loop, append each string to a new list until the string that appears is “z”. The function should return the new list.
+def stop_at_z(lst):
+    n = 0
+    x = []
+    while len(lst) > n:
+        if lst[n] == "z":
+            break
+        x.append(lst[n])
+        n += 1
+    return x
+
+# Below is a for loop that works. Underneath the for loop, rewrite the problem so that it does the same thing, but using a while loop instead of a for loop. Assign the accumulated total in the while loop code to the variable sum2. Once complete, sum2 should equal sum1.
+sum1 = 0
+lst = [65, 78, 21, 33]
+for x in lst:
+    sum1 = sum1 + x
+
+sum2 = 0
+n = 0
+while len(lst) > n:
+    sum2 += lst[n]
+    n += 1
+
+# Challenge: Write a function called beginning that takes a list as input and contains a while loop that only stops once the element of the list is the string ‘bye’. What is returned is a list that contains up to the first 10 strings, regardless of where the loop stops. (i.e., if it stops on the 32nd element, the first 10 are returned. If “bye” is the 5th element, the first 4 are returned.) If you want to make this even more of a challenge, do this without slicing
+def beginning(lst):
+    n = 0
+    x = []
+    while len(lst) > n:
+        if lst[n] == "bye":
+            break
+        x.append(lst[n])
+        n += 1
+    return x[:10]
+
+# --------------------------------- Assessment: Advanced Functions
+
+# Create a function called mult that has two parameters, the first is required and should be an integer, the second is an optional parameter that can either be a number or a string but whose default is 6. The function should return the first parameter multiplied by the second.
+def mult(x,y=6):
+    return x*y
+
+# The following function, greeting, does not work. Please fix the code so that it runs without error. This only requires one change in the definition of the function.
+def greeting(greeting="Hello ", name, excl="!"):
+    return greeting + name + excl
+def greeting(name,greeting="Hello ", excl="!"):
+    return greeting + name + excl
+
+
+# Below is a function, sum, that does not work. Change the function definition so the code works. The function should still have a required parameter, intx, and an optional parameter, intz with a defualt value of 5.
+def sum(intz=5, intx):
+    return intz + intx
+def sum(intx, intz=5):
+    return intz + intx
+
+
+# Write a function, test, that takes in three parameters: a required integer, an optional boolean whose default value is True, and an optional dictionary, called dict1, whose default value is {2:3, 4:5, 6:8}. If the boolean parameter is True, the function should test to see if the integer is a key in the dictionary. The value of that key should then be returned. If the boolean parameter is False, return the boolean value “False”.
+def test(a, b=True, dict1={2:3, 4:5, 6:8}):
+    if b:
+        if a in dict1:
+            return dict1[a]
+    else:
+        return False
+# Write a function called checkingIfIn that takes three parameters. The first is a required parameter, which should be a string. The second is an optional parameter called direction with a default value of True. The third is an optional parameter called d that has a default value of {'apple': 2, 'pear': 1, 'fruit': 19, 'orange': 5, 'banana': 3, 'grapes': 2, 'watermelon': 7}. Write the function checkingIfIn so that when the second parameter is True, it checks to see if the first parameter is a key in the third parameter; if it is, return True, otherwise return False.
+def checkingIfIn(a, direction=True, d={'apple': 2, 'pear': 1, 'fruit': 19, 'orange': 5, 'banana': 3, 'grapes': 2, 'watermelon': 7}):
+    if direction:
+        if a in d:
+            return True
+        else:
+            return False
+    else:
+        if not a in d:
+            return True
+        else:
+            return False
+
+# We have provided the function checkingIfIn such that if the first input parameter is in the third, dictionary, input parameter, then the function returns that value, and otherwise, it returns False. Follow the instructions in the active code window for specific variable assignmemts.
+def checkingIfIn(a, direction = True, d = {'apple': 2, 'pear': 1, 'fruit': 19, 'orange': 5, 'banana': 3, 'grapes': 2, 'watermelon': 7}):
+    if direction == True:
+        if a in d:
+            return d[a]
+        else:
+            return False
+    else:
+        if a not in d:
+            return True
+        else:
+            return d[a]
+# Call the function so that it returns False and assign that function call to the variable c_false
+c_false = checkingIfIn('not_a_valid_key', direction=True)
+# Call the fucntion so that it returns True and assign it to the variable c_true
+c_true = checkingIfIn('not_a_in_d', direction=False)
+# Call the function so that the value of fruit is assigned to the variable fruit_ans
+fruit_ans = checkingIfIn('fruit', direction=True)
+# Call the function using the first and third parameter so that the value 8 is assigned to the variable param_check
+param_check = checkingIfIn('apple', d={'apple' : 8})
+
+
+# -------------------------------------------- Assessment: Sorting
+
+# Sort the following string alphabetically, from z to a, and assign it to the variable sorted_letters.
+letters = "alwnfiwaksuezlaeiajsdl"
+sorted_letters = sorted(letters, reverse=True)
+
+# Sort the list below, animals, into alphabetical order, a-z. Save the new list as animals_sorted.
+animals = ['elephant', 'cat', 'moose', 'antelope', 'elk', 'rabbit', 'zebra', 'yak', 'salamander', 'deer', 'otter', 'minx', 'giraffe', 'goat', 'cow', 'tiger', 'bear']
+animals_sorted = sorted(animals)
+
+# The dictionary, medals, shows the medal count for six countries during the Rio Olympics. Sort the country names so they appear alphabetically. Save this list to the variable alphabetical.
+medals = {'Japan':41, 
+          'Russia':56, 
+          'South Korea':21, 
+          'United States':121, 
+          'Germany':42, 
+          'China':70}
+alphabetical = sorted(medals)
+
+# Given the same dictionary, medals, now sort by the medal count. Save the three countries with the highest medal count to the list, top_three.
+medals = {'Japan':41, 'Russia':56, 'South Korea':21, 'United States':121, 'Germany':42, 'China':70}
+#top_three = list(dict(sorted(medals.items(), key=lambda x:x[1], reverse=True)[:3]).keys())
+top_three = []
+def g(k,d):
+    return d[k]
+ks = medals.keys()
+top_three = sorted(ks,key=lambda x : g(x,medals),reverse = True)[:3]   
+
+
+# We have provided the dictionary groceries. You should return a list of its keys, but they should be sorted by their values, from highest to lowest. Save the new list as most_needed.
+groceries = {'apples': 5, 'pasta': 3, 'carrots': 12, 'orange juice': 2, 'bananas': 8, 'popcorn': 1, 'salsa': 3, 'cereal': 4, 'coffee': 5, 'granola bars': 15, 'onions': 7, 'rice': 1, 'peanut butter': 2, 'spinach': 9}
+#most_needed = list(dict(sorted(groceries.items(), key=lambda x:x[1], reverse=True)).keys())
+most_needed = []
+def g(k,d):
+    return d[k]
+ks = groceries.keys()
+most_needed = sorted(ks, key=lambda x:g(x,groceries), reverse = True)
+
+# Create a function called last_four that takes in an ID number and returns the last four digits. For example, the number 17573005 should return 3005. Then, use this function to sort the list of ids stored in the variable, ids, from lowest to highest. Save this sorted list in the variable, sorted_ids. Hint: Remember that only strings can be indexed, so conversions may be needed.
+def last_four(x):
+    return int(str(x)[-4:])
+ids = [17573005, 17572342, 17579000, 17570002, 17572345, 17579329]
+x = []
+for i in ids:
+    x.append(last_four(i))
+sorted_ids = [i[1] for i in sorted(zip(x,ids), key=lambda x:x[0])]
+
+
+
+# Sort the list ids by the last four digits of each id. Do this using lambda and not using a defined function. Save this sorted list in the variable sorted_id.
+ids = [17573005, 17572342, 17579000, 17570002, 17572345, 17579329]
+sorted_id = sorted(ids, key=lambda x:int(str(x)[-4:]))
+
+# Sort the following list by each element’s second letter a to z. Do so by using lambda. Assign the resulting value to the variable lambda_sort.
+ex_lst = ['hi', 'how are you', 'bye', 'apple', 'zebra', 'dance']
+lambda_sort = sorted(ex_lst, key=lambda x:x[1])
+
+
+# ---------------------- Project - Part 1: Sentiment Classifier
+
+punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
+def strip_punctuation(x):
+    for i in punctuation_chars:
+        x = x.replace(i, '')
+    return x
+
+punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
+# list of positive words to use
+positive_words = []
+with open("positive_words.txt") as pos_f:
+    for lin in pos_f:
+        if lin[0] != ';' and lin[0] != '\n':
+            positive_words.append(lin.strip())
+def strip_punctuation(x):
+    for i in punctuation_chars:
+        x = x.replace(i, '')
+    return x
+def get_pos(x):
+    return sum([i.lower() in positive_words for i in strip_punctuation(x).split() ])
+
+punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
+negative_words = []
+with open("negative_words.txt") as pos_f:
+    for lin in pos_f:
+        if lin[0] != ';' and lin[0] != '\n':
+            negative_words.append(lin.strip())
+def strip_punctuation(x):
+    for i in punctuation_chars:
+        x = x.replace(i, '')
+    return x
+def get_pos(x):
+    return sum([i.lower() in positive_words for i in strip_punctuation(x).split() ])
+def get_neg(x):
+    return sum([i.lower() in negative_words for i in strip_punctuation(x).split() ])
+
+
+
+
+
+punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
+# lists of words to use
+positive_words = []
+with open("positive_words.txt") as pos_f:
+    for lin in pos_f:
+        if lin[0] != ';' and lin[0] != '\n':
+            positive_words.append(lin.strip())
+negative_words = []
+with open("negative_words.txt") as pos_f:
+    for lin in pos_f:
+        if lin[0] != ';' and lin[0] != '\n':
+            negative_words.append(lin.strip())
+punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
+negative_words = []
+with open("negative_words.txt") as pos_f:
+    for lin in pos_f:
+        if lin[0] != ';' and lin[0] != '\n':
+            negative_words.append(lin.strip())
+def strip_punctuation(x):
+    for i in punctuation_chars:
+        x = x.replace(i, '')
+    return x
+def get_pos(x):
+    return sum([i.lower() in positive_words for i in strip_punctuation(x).split() ])
+def get_neg(x):
+    return sum([i.lower() in negative_words for i in strip_punctuation(x).split() ])
+x = open("project_twitter_data.csv", 'r').read().splitlines()
+file = open("resulting_data.csv", 'a')
+for e, line in enumerate(x[1:]):
+    if e == 0:
+        file.write("Number of Retweets, Number of Replies, Positive Score, Negative Score, Net Score\n")
+    tweet_text, retweet_count, reply_count = [i.strip() for i in line.split(",")]
+    positive_score = get_pos(tweet_text)
+    negative_score = get_neg(tweet_text)    
+    q = "{},{},{},{},{}\n".format(retweet_count,reply_count,positive_score,negative_score,positive_score-negative_score)
+    file.write(q)
+    #print(q)
+file.close()
+
+# ----------------------------
+
+import pandas as pd
+df = pd.read_csv("resulting_data.csv")
+plt.scatter(df[' Net Score'], df['Number of Retweets'])
+plt.ylabel("Number of Retweets")
+plt.xlabel("Net Score")
+plt.show()
+
+
+
+
+===========================================================================================
+# Data Collection and Processing with Python (3rd course from 'Python 3 Programming Specialization')
+# https://www.coursera.org/learn/data-collection-processing-python?specialization=python-3-programming
+
+# The variable nested contains a nested list. Assign ‘snake’ to the variable output using indexing. 
+nested = [
+    ['dog', 'cat', 'horse'], 
+    ['frog', 'turtle', 'snake', 'gecko'], 
+    ['hamster', 'gerbil', 'rat', 'ferret']
+]
+output = nested[1][2]
+
+# Below, a list of lists is provided. Use in and not in tests to create variables with Boolean values. See comments for further instructions.
+lst = [
+    ['apple', 'orange', 'banana'], 
+    [5, 6, 7, 8, 9.9, 10], 
+    ['green', 'yellow', 'purple', 'red']
+]
+#Test to see if 'yellow' is in the third list of lst. Save to variable ``yellow``
+yellow = 'yellow' in lst[2]
+#Test to see if 4 is in the second list of lst. Save to variable ``four``
+four = 4 in lst[1]
+#Test to see if 'orange' is in the first element of lst. Save to variable ``orange``
+orange = 'orange' in lst[0]
+
+
+# Below, we’ve provided a list of lists. Use in statements to create variables with Boolean values - see the ActiveCode window for further directions.
+L = [
+    [5, 8, 7], 
+    ['hello', 'hi', 'hola'], 
+    [6.6, 1.54, 3.99], 
+    ['small', 'large']
+]
+# Test if 'hola' is in the list L. Save to variable name test1
+test1 = 'hola' in L
+# Test if [5, 8, 7] is in the list L. Save to variable name test2
+test2 = [5, 8, 7] in L
+# Test if 6.6 is in the third element of list L. Save to variable name test3
+test3 = 6.6 in L[2]
+
+
+# Provided is a nested data structure. Follow the instructions in the comments below. Do not hard code.
+nested = {'data': ['finding', 23, ['exercises', 'hangout', 34]], 
+          'window': ['part', 'whole', [], 'sum', ['math', 'calculus', 'algebra', 'geometry', 'statistics',['physics', 'chemistry', 'biology']]]
+         }
+# Check to see if the string data is a key in nested, if it is, assign True to the variable data, otherwise assign False.
+data = all([isinstance(i, str) for i in nested.keys()])
+# Check to see if the integer 24 is in the value of the key data, if it is then assign to the variable twentyfour the value of True, otherwise False.
+twentyfour = 24 in nested
+# Check to see that the string 'whole' is not in the value of the key window. If it's not, then assign to the variable whole the value of True, otherwise False.
+whole = 'whole' not in nested['window']
+# Check to see if the string 'physics' is a key in the dictionary nested. If it is, assign to the variable physics, the value of True, otherwise False.
+physics = 'physics' in nested
+
+
+# The variable nested_d contains a nested dictionary with the gold medal counts for the top four countries in the past three Olympics. Assign the value of Great Britain’s gold medal count from the London Olympics to the variable london_gold. Use indexing. Do not hardcode.
+nested_d = {
+    'Beijing':{'China':51, 'USA':36, 'Russia':22, 'Great Britain':19}, 
+    'London':{'USA':46, 'China':38, 'Great Britain':29, 'Russia':22}, 
+    'Rio':{'USA':35, 'Great Britain':22, 'China':20, 'Germany':13}
+}
+london_gold = nested_d['London']['Great Britain']
+
+
+# Below, we have provided a nested dictionary. Index into the dictionary to create variables that we have listed in the ActiveCode window.
+sports = {
+    'swimming': ['butterfly', 'breaststroke', 'backstroke', 'freestyle'], 
+    'diving': ['springboard', 'platform', 'synchronized'], 
+    'track': ['sprint', 'distance', 'jumps', 'throws'], 
+    'gymnastics': {
+        'women':['vault', 'floor', 'uneven bars', 'balance beam'], 
+        'men': ['vault', 'parallel bars', 'floor', 'rings']
+    }
+}
+# Assign the string 'backstroke' to the name v1
+v1 = sports['swimming'][2]
+# Assign the string 'platform' to the name v2
+v2 = sports['diving'][1]
+# Assign the list ['vault', 'floor', 'uneven bars', 'balance beam'] to the name v3
+v3 = sports['gymnastics']['women']
+# Assign the string 'rings' to the name v4
+v4 = sports['gymnastics']['men'][-1]
+
+
+# Given the dictionary, nested_d, save the medal count for the USA from all three Olympics in the dictionary to the list US_count.
+nested_d = {
+    'Beijing':{'China':51, 'USA':36, 'Russia':22, 'Great Britain':19}, 
+    'London':{'USA':46, 'China':38, 'Great Britain':29, 'Russia':22}, 
+    'Rio':{'USA':35, 'Great Britain':22, 'China':20, 'Germany':13}
+}
+US_count = [v['USA'] for k,v in nested_d.items()]
+
+# Iterate through the contents of l_of_l and assign the third element of sublist to a new list called third.
+l_of_l = [
+    ['purple', 'mauve', 'blue'], 
+    ['red', 'maroon', 'blood orange', 'crimson'], 
+    ['sea green', 'cornflower', 'lavender', 'indigo'], 
+    ['yellow', 'amarillo', 'mac n cheese', 'golden rod']
+]
+third = [i[2] for i in l_of_l]
+
+
+# Given below is a list of lists of athletes. Create a list, t, that saves only the athlete’s name if it contains the letter “t”. If it does not contain the letter “t”, save the athlete name into list other.
+athletes = [
+    ['Phelps', 'Lochte', 'Schooling', 'Ledecky', 'Franklin'], 
+    ['Felix', 'Bolt', 'Gardner', 'Eaton'], 
+    ['Biles', 'Douglas', 'Hamm', 'Raisman', 'Mikulak', 'Dalton']
+]
+t, other = [], []
+for inner_list in athletes:
+    for athlete in inner_list:
+        if "t" in athlete:
+            t.append(athlete)
+        else:
+            other.append(athlete)
+
+#--------------------------------------------------------------------
+
+# Write code to assign to the variable map_testing all the elements in lst_check while adding the string “Fruit: ” to the beginning of each element using mapping.
+lst_check = ['plums', 'watermelon', 'kiwi', 'strawberries', 'blueberries', 'peaches', 'apples', 'mangos', 'papaya']
+map_testing = list(map(lambda x: 'Fruit: ' + x, lst_check))
+
+
+# Below, we have provided a list of strings called countries. Use filter to produce a list called b_countries that only contains the strings from countries that begin with B.
+countries = ['Canada', 'Mexico', 'Brazil', 'Chile', 'Denmark', 'Botswana', 'Spain', 'Britain', 'Portugal', 'Russia', 'Thailand', 'Bangladesh', 'Nigeria', 'Argentina', 'Belarus', 'Laos', 'Australia', 'Panama', 'Egypt', 'Morocco', 'Switzerland', 'Belgium']
+b_countries = list(filter(lambda x:x.startswith("B"), countries))
+
+
+# Below, we have provided a list of tuples that contain the names of Game of Thrones characters. Using list comprehension, create a list of strings called first_names that contains only the first names of everyone in the original list.
+people = [('Snow', 'Jon'), ('Lannister', 'Cersei'), ('Stark', 'Arya'), ('Stark', 'Robb'), ('Lannister', 'Jamie'), ('Targaryen', 'Daenerys'), ('Stark', 'Sansa'), ('Tyrell', 'Margaery'), ('Stark', 'Eddard'), ('Lannister', 'Tyrion'), ('Baratheon', 'Joffrey'), ('Bolton', 'Ramsey'), ('Baelish', 'Peter')]
+first_names = [i[1] for i in people]
+
+# Use list comprehension to create a list called lst2 that doubles each element in the list, lst.
+lst = [["hi", "bye"], "hello", "goodbye", [9, 2], 4]
+lst2 = [i*2 for i in lst]
+
+
+# Below, we have provided a list of tuples that contain students’ names and their final grades in PYTHON 101. Using list comprehension, create a new list passed that contains the names of students who passed the class (had a final grade of 70 or greater).
+students = [('Tommy', 95), ('Linda', 63), ('Carl', 70), ('Bob', 100), ('Raymond', 50), ('Sue', 75)]
+passed = [i[0] for i in students if i[1] >= 70]
+
+# Write code using zip and filter so that these lists (l1 and l2) are combined into one big list and assigned to the variable opposites if they are both longer than 3 characters each.
+l1 = ['left', 'up', 'front']
+l2 = ['right', 'down', 'back']
+opposites=list(filter(
+    lambda x:len(x[0]) > 3 and len(x[1]) > 3,
+    zip(l1, l2))
+              )
+
+# Below, we have provided a species list and a population list. Use zip to combine these lists into one list of tuples called pop_info. From this list, create a new list called endangered that contains the names of species whose populations are below 2500.
+species = ['golden retriever', 'white tailed deer', 'black rhino', 'brown squirrel', 'field mouse', 'orangutan', 'sumatran elephant', 'rainbow trout', 'black bear', 'blue whale', 'water moccasin', 'giant panda', 'green turtle', 'blue jay', 'japanese beetle']
+population = [10000, 90000, 1000, 2000000, 500000, 500, 1200, 8000, 12000, 2300, 7500, 100, 1800, 9500, 125000]
+pop_info = list(zip(species, population))
+endangered = [i[0] for i in pop_info if i[1] < 2500]
+
+#--------------------- python-classes-inheritance
+# Define a class called Bike that accepts a string and a float as input, and assigns those inputs respectively to two instance variables, color and price. Assign to the variable testOne an instance of Bike whose color is blue and whose price is 89.99. Assign to the variable testTwo an instance of Bike whose color is purple and whose price is 25.0.
+class Bike:
+    def __init__(self, color, price):
+        self.color = color
+        self.price = price
+testOne = Bike('blue', 89.99)
+testTwo = Bike('purple', 25.0)
+
+
+# Create a class called AppleBasket whose constructor accepts two inputs: a string representing a color, and a number representing a quantity of apples. The constructor should initialize two instance variables: apple_color and apple_quantity. Write a class method called increase that increases the quantity by 1 each time it is invoked. You should also write a __str__ method for this class that returns a string of the format: "A basket of [quantity goes here] [color goes here] apples." e.g. "A basket of 4 red apples." or "A basket of 50 blue apples." (Writing some test code that creates instances and assigns values to variables may help you solve this problem!)
+class AppleBasket:
+    def __init__(self, color, apple_qty):
+        self.apple_color = color
+        self.apple_quantity = apple_qty
+    def increase(self):
+        self.apple_quantity += 1        
+    def __str__(self):
+        return str("A basket of {} {} apples.".format(self.apple_quantity, self.apple_color))
+
+
+# Define a class called BankAccount that accepts the name you want associated with your bank account in a string, and an integer that represents the amount of money in the account. The constructor should initialize two instance variables from those inputs: name and amt. Add a string method so that when you print an instance of BankAccount, you see "Your account, [name goes here], has [start_amt goes here] dollars." Create an instance of this class with "Bob" as the name and 100 as the amount. Save this to the variable t1.
+class BankAccount:
+    def __init__(self, account_name, money):
+        self.name = account_name
+        self.amt = money
+    def __str__(self):
+        return "Your account, {}, has {} dollars.".format(self.name, self.amt)
+t1 = BankAccount("Bob", 100)
+
+#--------------------------------------- 
+
+# The class, Pokemon, is provided below and describes a Pokemon and its leveling and evolving characteristics. An instance of the class is one pokemon that you create.
+# Grass_Pokemon is a subclass that inherits from Pokemon but changes some aspects, for instance, the boost values are different.
+# For the subclass Grass_Pokemon, add another method called action that returns the string "[name of pokemon] knows a lot of different moves!". Create an instance of this class with the name as "Belle". Assign this instance to the variable p1.
+class Pokemon(object):
+    attack = 12
+    defense = 10
+    health = 15
+    p_type = "Normal"
+    def __init__(self, name, level = 5):
+        self.name = name
+        self.level = level
+    def train(self):
+        self.update()
+        self.attack_up()
+        self.defense_up()
+        self.health_up()
+        self.level = self.level + 1
+        if self.level%self.evolve == 0:
+            return self.level, "Evolved!"
+        else:
+            return self.level
+    def attack_up(self):
+        self.attack = self.attack + self.attack_boost
+        return self.attack
+    def defense_up(self):
+        self.defense = self.defense + self.defense_boost
+        return self.defense
+    def health_up(self):
+        self.health = self.health + self.health_boost
+        return self.health
+    def update(self):
+        self.health_boost = 5
+        self.attack_boost = 3
+        self.defense_boost = 2
+        self.evolve = 10
+    def __str__(self):
+        self.update()
+        return "Pokemon name: {}, Type: {}, Level: {}".format(self.name, self.p_type, self.level)
+class Grass_Pokemon(Pokemon):
+    attack = 15
+    defense = 14
+    health = 12
+    def update(self):
+        self.health_boost = 6
+        self.attack_boost = 2
+        self.defense_boost = 3
+        self.evolve = 12
+    def moves(self):
+        self.p_moves = ["razor leaf", "synthesis", "petal dance"]
+    # def action(self):
+        # return "{} knows a lot of different moves!".format(self.name)
+# p1 = Grass_Pokemon("Belle")
+# ------------
+# Modify the Grass_Pokemon subclass so that the attack strength for Grass_Pokemon instances does not change until they reach level 10. At level 10 and up, their attack strength should increase by the attack_boost amount when they are trained.
+# To test, create an instance of the class with the name as "Bulby". Assign the instance to the variable p2. Create another instance of the Grass_Pokemon class with the name set to "Pika" and assign that instance to the variable p3. Then, use Grass_Pokemon methods to train the p3 Grass_Pokemon instance until it reaches at least level 10.
+class Pokemon(object):
+    attack = 12
+    defense = 10
+    health = 15
+    p_type = "Normal"
+    def __init__(self, name, level = 5):
+        self.name = name
+        self.level = level
+    def train(self):
+        self.update()
+        self.attack_up()
+        self.defense_up()
+        self.health_up()
+        self.level = self.level + 1
+        if self.level%self.evolve == 0:
+            return self.level, "Evolved!"
+        else:
+            return self.level
+    def attack_up(self):
+        # if self.attack >= 10: 
+            self.attack = self.attack + self.attack_boost
+        return self.attack
+    def defense_up(self):
+        self.defense = self.defense + self.defense_boost
+        return self.defense
+    def health_up(self):
+        self.health = self.health + self.health_boost
+        return self.health
+    def update(self):
+        self.health_boost = 5
+        self.attack_boost = 3
+        self.defense_boost = 2
+        self.evolve = 10
+    def __str__(self):
+        return "Pokemon name: {}, Type: {}, Level: {}".format(self.name, self.p_type, self.level)
+class Grass_Pokemon(Pokemon):
+    attack = 15
+    defense = 14
+    health = 12
+    p_type = "Grass"
+    def update(self):
+        self.health_boost = 6
+        self.attack_boost = 2
+        self.defense_boost = 3
+        self.evolve = 12
+    def moves(self):
+        self.p_moves = ["razor leaf", "synthesis", "petal dance"]
+p2 = Grass_Pokemon("Bulby", level = 5)
+p3 = Grass_Pokemon("Pika", level = 5)
+p3.train()
+# --------------
+# Along with the Pokemon parent class, we have also provided several subclasses. Write another method in the parent class that will be inherited by the subclasses. Call it opponent. It should return which type of pokemon the current type is weak and strong against, as a tuple.
+#     Grass is weak against Fire and strong against Water
+#     Ghost is weak against Dark and strong against Psychic
+#     Fire is weak against Water and strong against Grass
+#     Flying is weak against Electric and strong against Fighting
+# For example, if the p_type of the subclass is 'Grass', .opponent() should return the tuple ('Fire', 'Water') 
+class Pokemon():
+    attack = 12
+    defense = 10
+    health = 15
+    p_type = "Normal"
+    def __init__(self, name,level = 5):
+        self.name = name
+        self.level = level
+        self.weak = "Normal"
+        self.strong = "Normal"
+    def train(self):
+        self.update()
+        self.attack_up()
+        self.defense_up()
+        self.health_up()
+        self.level = self.level + 1
+        if self.level%self.evolve == 0:
+            return self.level, "Evolved!"
+        else:
+            return self.level
+    def attack_up(self):
+        self.attack = self.attack + self.attack_boost
+        return self.attack
+    def defense_up(self):
+        self.defense = self.defense + self.defense_boost
+        return self.defense
+    def health_up(self):
+        self.health = self.health + self.health_boost
+        return self.health
+    def update(self):
+        self.health_boost = 5
+        self.attack_boost = 3
+        self.defense_boost = 2
+        self.evolve = 10
+    def __str__(self):
+        self.update()
+        return "Pokemon name: {}, Type: {}, Level: {}".format(self.name, self.p_type, self.level)
+    # def opponent(self):
+    #   dic = {
+    #       "Grass" : ("Fire", "Water"),
+    #       "Ghost" : ("Dark", "Psychic"),
+    #       "Fire" : ("Water", "Grass"),
+    #       "Flying" : ("Electric", "Fighting")         
+    #   }
+    #   print("------", self.p_type)
+    #   return dic.get(self.p_type, None)
+class Grass_Pokemon(Pokemon):
+    attack = 15
+    defense = 14
+    health = 12
+    p_type = "Grass"
+    def update(self):
+        self.health_boost = 6
+        self.attack_boost = 2
+        self.defense_boost = 3
+        self.evolve = 12
+class Ghost_Pokemon(Pokemon):
+    p_type = "Ghost"
+    def update(self):
+        self.health_boost = 3
+        self.attack_boost = 4
+        self.defense_boost = 3
+class Fire_Pokemon(Pokemon):
+    p_type = "Fire"
+class Flying_Pokemon(Pokemon):
+    p_type = "Flying"
+
+
+
+
+# ===========================================================
+
+
+
+VOWEL_COST = 250
+LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+VOWELS = 'AEIOU'
+
+# Write the WOFPlayer class definition (part A) here
+class WOFPlayer:
+    def __init__(self, name):
+        self.name = name
+        self.prizeMoney = 0
+        self.prizes = []
+    def addMoney(self, amt):
+        self.prizeMoney += amt
+    def goBankrupt(self):
+        self.prizeMoney = 0
+    def addPrize(self, prize):
+        self.prizes.append(prize)
+    def __str__(self):
+        return "{} (${})".format(self.name, self.prizeMoney)
+    
+# Write the WOFHumanPlayer class definition (part B) here
+class WOFHumanPlayer(WOFPlayer):
+    def getMove(self, category, obscuredPhrase, guessed):
+        print(__str__())
+        print("Category: {category}\nCategory: {obscuredPhrase}\nGuessed: {guessed}".format())
+        x = input("Guess a letter, phrase, or type 'exit' or 'pass': ")
+        if x == 'exit':
+            sys.exit()
+        if x == 'pass':
+            return None
+        if len(x) == 1:
+            pass
+        else:
+            pass    
+move = player.getMove(category, obscurePhrase(phrase, guessed), guessed)
+class WOFComputerPlayer(WOFPlayer):
+    SORTED_FREQUENCIES = 'ZQXJKVBPYGFWMUCLDRHSNIOATE'
+    def __init__(self, name, difficulty):
+        self.prizeMoney = 0
+        self.prizes = []
+        self.difficulty = difficulty
+        self.name = name
+    def smartCoinFlip(self):
+        return random.randint(1, 10) > self.difficulty
+    def getPossibleLetters(self, guessed):
+        if VOWEL_COST == 250:
+            return [i for i in LETTERS if (not i in guessed) and (not i in VOWELS)]
+        return [i for i in LETTERS if not i in guessed]
+    def getMove(self, category, obscuredPhrase, guessed):
+        lst = self.getPossibleLetters(guessed)
+        if (VOWEL_COST == 250) and (all([i in VOWELS for i in lst])):
+            return 'pass'
+        if self.smartCoinFlip():
+            for i in self.SORTED_FREQUENCIES[::-1]:
+                if i in lst:
+                    return i
+        else:
+            return random.choice(lst)
+--------------------------------------------------
+# PASTE YOUR WOFPlayer CLASS (from part A) HERE
+class WOFPlayer:
+    def __init__(self, name):
+        self.name = name
+        self.prizeMoney = 0
+        self.prizes = []
+    def addMoney(self, amt):
+        self.prizeMoney += amt
+    def goBankrupt(self):
+        self.prizeMoney = 0
+    def addPrize(self, prize):
+        self.prizes.append(prize)
+    def __str__(self):
+        return "{} (${})".format(self.name, self.prizeMoney)
+# PASTE YOUR WOFHumanPlayer CLASS (from part B) HERE
+class WOFHumanPlayer(WOFPlayer):
+    def getMove(self, category, obscuredPhrase, guessed):
+        print(self.__str__())
+        print("Category: {}\nCategory: {}\nGuessed: {}".format(category, obscuredPhrase, guessed))
+        x = input("Guess a letter, phrase, or type 'exit' or 'pass': ")
+        return x
+# PASTE YOUR WOFComputerPlayer CLASS (from part C) HERE
+class WOFComputerPlayer(WOFPlayer):
+    SORTED_FREQUENCIES = 'ZQXJKVBPYGFWMUCLDRHSNIOATE'
+    def __init__(self, name, difficulty):
+        self.prizeMoney = 0
+        self.prizes = []
+        self.difficulty = difficulty
+        self.name = name
+    def smartCoinFlip(self):
+        return random.randint(1, 10) > self.difficulty
+    def getPossibleLetters(self, guessed):
+        if VOWEL_COST == 250:
+            return [i for i in LETTERS if (not i in guessed) and (not i in VOWELS)]
+        return [i for i in LETTERS if not i in guessed]
+    def getMove(self, category, obscuredPhrase, guessed):
+        lst = self.getPossibleLetters(guessed)
+        if (VOWEL_COST == 250) and (all([i in VOWELS for i in lst])):
+            return 'pass'
+        if self.smartCoinFlip():
+            for i in self.SORTED_FREQUENCIES[::-1]:
+                if i in lst:
+                    return i
+        else:
+            return random.choice(lst)
+
+
+import sys
+# sys.setExecutionLimit(600000) # let this take up to 10 minutes
+
+import json
+import random
+import time
+
+LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+VOWELS  = 'AEIOU'
+VOWEL_COST  = 250
+
+# Repeatedly asks the user for a number between min & max (inclusive)
+def getNumberBetween(prompt, min, max):
+    userinp = input(prompt) # ask the first time
+
+    while True:
+        try:
+            n = int(userinp) # try casting to an integer
+            if n < min:
+                errmessage = 'Must be at least {}'.format(min)
+            elif n > max:
+                errmessage = 'Must be at most {}'.format(max)
+            else:
+                return n
+        except ValueError: # The user didn't enter a number
+            errmessage = '{} is not a number.'.format(userinp)
+
+        # If we haven't gotten a number yet, add the error message
+        # and ask again
+        userinp = input('{}\n{}'.format(errmessage, prompt))
+
+# Spins the wheel of fortune wheel to give a random prize
+# Examples:
+#    { "type": "cash", "text": "$950", "value": 950, "prize": "A trip to Ann Arbor!" },
+#    { "type": "bankrupt", "text": "Bankrupt", "prize": false },
+#    { "type": "loseturn", "text": "Lose a turn", "prize": false }
+def spinWheel():
+    with open("wheel.json", 'r') as f:
+        wheel = json.loads(f.read())
+        return random.choice(wheel)
+
+# Returns a category & phrase (as a tuple) to guess
+# Example:
+#     ("Artist & Song", "Whitney Houston's I Will Always Love You")
+def getRandomCategoryAndPhrase():
+    with open("phrases.json", 'r') as f:
+        phrases = json.loads(f.read())
+
+        category = random.choice(list(phrases.keys()))
+        phrase   = random.choice(phrases[category])
+        return (category, phrase.upper())
+
+# Given a phrase and a list of guessed letters, returns an obscured version
+# Example:
+#     guessed: ['L', 'B', 'E', 'R', 'N', 'P', 'K', 'X', 'Z']
+#     phrase:  "GLACIER NATIONAL PARK"
+#     returns> "_L___ER N____N_L P_RK"
+def obscurePhrase(phrase, guessed):
+    rv = ''
+    for s in phrase:
+        if (s in LETTERS) and (s not in guessed):
+            rv = rv+'_'
+        else:
+            rv = rv+s
+    return rv
+
+# Returns a string representing the current state of the game
+def showBoard(category, obscuredPhrase, guessed):
+    return """
+Category: {}
+Phrase:   {}
+Guessed:  {}""".format(category, obscuredPhrase, ', '.join(sorted(guessed)))
+
+# GAME LOGIC CODE
+print('='*15)
+print('WHEEL OF PYTHON')
+print('='*15)
+print('')
+
+num_human = getNumberBetween('How many human players?', 0, 10)
+
+# Create the human player instances
+human_players = [WOFHumanPlayer(input('Enter the name for human player #{}'.format(i+1))) for i in range(num_human)]
+
+num_computer = getNumberBetween('How many computer players?', 0, 10)
+
+# If there are computer players, ask how difficult they should be
+if num_computer >= 1:
+    difficulty = getNumberBetween('What difficulty for the computers? (1-10)', 1, 10)
+
+# Create the computer player instances
+computer_players = [WOFComputerPlayer('Computer {}'.format(i+1), difficulty) for i in range(num_computer)]
+
+players = human_players + computer_players
+
+# No players, no game :(
+if len(players) == 0:
+    print('We need players to play!')
+    raise Exception('Not enough players')
+
+# category and phrase are strings.
+category, phrase = getRandomCategoryAndPhrase()
+# guessed is a list of the letters that have been guessed
+guessed = []
+
+# playerIndex keeps track of the index (0 to len(players)-1) of the player whose turn it is
+playerIndex = 0
+
+# will be set to the player instance when/if someone wins
+winner = False
+
+def requestPlayerMove(player, category, guessed):
+    while True: # we're going to keep asking the player for a move until they give a valid one
+        time.sleep(0.1) # added so that any feedback is printed out before the next prompt
+
+        move = player.getMove(category, obscurePhrase(phrase, guessed), guessed)
+        move = move.upper() # convert whatever the player entered to UPPERCASE
+        if move == 'EXIT' or move == 'PASS':
+            return move
+        elif len(move) == 1: # they guessed a character
+            if move not in LETTERS: # the user entered an invalid letter (such as @, #, or $)
+                print('Guesses should be letters. Try again.')
+                continue
+            elif move in guessed: # this letter has already been guessed
+                print('{} has already been guessed. Try again.'.format(move))
+                continue
+            elif move in VOWELS and player.prizeMoney < VOWEL_COST: # if it's a vowel, we need to be sure the player has enough
+                    print('Need ${} to guess a vowel. Try again.'.format(VOWEL_COST))
+                    continue
+            else:
+                return move
+        else: # they guessed the phrase
+            return move
+
+
+while True:
+    player = players[playerIndex]
+    wheelPrize = spinWheel()
+
+    print('')
+    print('-'*15)
+    print(showBoard(category, obscurePhrase(phrase, guessed), guessed))
+    print('')
+    print('{} spins...'.format(player.name))
+    time.sleep(2) # pause for dramatic effect!
+    print('{}!'.format(wheelPrize['text']))
+    time.sleep(1) # pause again for more dramatic effect!
+
+    if wheelPrize['type'] == 'bankrupt':
+        player.goBankrupt()
+    elif wheelPrize['type'] == 'loseturn':
+        pass # do nothing; just move on to the next player
+    elif wheelPrize['type'] == 'cash':
+        move = requestPlayerMove(player, category, guessed)
+        if move == 'EXIT': # leave the game
+            print('Until next time!')
+            break
+        elif move == 'PASS': # will just move on to next player
+            print('{} passes'.format(player.name))
+        elif len(move) == 1: # they guessed a letter
+            guessed.append(move)
+
+            print('{} guesses "{}"'.format(player.name, move))
+
+            if move in VOWELS:
+                player.prizeMoney -= VOWEL_COST
+
+            count = phrase.count(move) # returns an integer with how many times this letter appears
+            if count > 0:
+                if count == 1:
+                    print("There is one {}".format(move))
+                else:
+                    print("There are {} {}'s".format(count, move))
+
+                # Give them the money and the prizes
+                player.addMoney(count * wheelPrize['value'])
+                if wheelPrize['prize']:
+                    player.addPrize(wheelPrize['prize'])
+
+                # all of the letters have been guessed
+                if obscurePhrase(phrase, guessed) == phrase:
+                    winner = player
+                    break
+
+                continue # this player gets to go again
+
+            elif count == 0:
+                print("There is no {}".format(move))
+        else: # they guessed the whole phrase
+            if move == phrase: # they guessed the full phrase correctly
+                winner = player
+
+                # Give them the money and the prizes
+                player.addMoney(wheelPrize['value'])
+                if wheelPrize['prize']:
+                    player.addPrize(wheelPrize['prize'])
+
+                break
+            else:
+                print('{} was not the phrase'.format(move))
+
+    # Move on to the next player (or go back to player[0] if we reached the end)
+    playerIndex = (playerIndex + 1) % len(players)
+
+if winner:
+    # In your head, you should hear this as being announced by a game show host
+    print('{} wins! The phrase was {}'.format(winner.name, phrase))
+    print('{} won ${}'.format(winner.name, winner.prizeMoney))
+    if len(winner.prizes) > 0:
+        print('{} also won:'.format(winner.name))
+        for prize in winner.prizes:
+            print('    - {}'.format(prize))
+else:
+    print('Nobody won. The phrase was {}'.format(phrase))
+
+
+

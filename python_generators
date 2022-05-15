@@ -1,0 +1,4 @@
+# https://www.quora.com/Why-dont-data-scientists-use-C-C++
+Python has a beatiful feature of generators (Generators - Python Wiki) that allows efficient pipeline processing of data: you can connect several data processing functions in a row and pass data between them one item after another without materializing all the intermediate datasets in memory - this is a great feature for processing large volumes of data. Nothing comparable exists in neither C/C++, nor Java, R or Matlab. Note that generators must be implemented inside the compiler/interpreter itself, there is no way to implement this feature as an additional library, since generators are a very special type of function, which works very differently on machine code level than a typical function.
+
+
