@@ -682,3 +682,17 @@ with open("new") as new, open("old") as old:
 
 
 
+
+#################
+try:
+    __file__
+except NameError:
+    raise AssertionError(
+        "You must run this like execfile('path/to/active_this.py', dict(__file__='path/to/activate_this.py'))")
+##################
+
+sys.platform #'linux'
+
+
+
+Check python script errors before executing it .............. pylint --errors-only script.py
