@@ -696,3 +696,8 @@ sys.platform #'linux'
 
 
 Check python script errors before executing it .............. pylint --errors-only script.py
+
+# smallest number possible : float("-inf") .............. usage: agar hame loop chala kar largest number find karna ho to ham largest_number variable ko ksi small number sy initialize karen gy.
+
+# split string by multiple seperators ................ x = "today-is my first_day"; re.split(" |-|_", x) # ['today', 'is', 'my', 'first', 'day']
+
