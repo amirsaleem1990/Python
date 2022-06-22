@@ -701,3 +701,6 @@ Check python script errors before executing it .............. pylint --errors-on
 
 # split string by multiple seperators ................ x = "today-is my first_day"; re.split(" |-|_", x) # ['today', 'is', 'my', 'first', 'day']
 
+
+# remove non empty folder ............... shutil.rmtree(folder_name, ignore_errors=True)
+
