@@ -704,3 +704,6 @@ Check python script errors before executing it .............. pylint --errors-on
 
 # remove non empty folder ............... shutil.rmtree(folder_name, ignore_errors=True)
 
+# a = b = 4
+
+# hardcoded constants ko __init__ sy bhit pehly likh lety hen, or un ko self.var_name sy call kar lety hen.
