@@ -682,3 +682,28 @@ with open("new") as new, open("old") as old:
 
 
 
+
+#################
+try:
+    __file__
+except NameError:
+    raise AssertionError(
+        "You must run this like execfile('path/to/active_this.py', dict(__file__='path/to/activate_this.py'))")
+##################
+
+sys.platform #'linux'
+
+
+
+Check python script errors before executing it .............. pylint --errors-only script.py
+
+# smallest number possible : float("-inf") .............. usage: agar hame loop chala kar largest number find karna ho to ham largest_number variable ko ksi small number sy initialize karen gy.
+
+# split string by multiple seperators ................ x = "today-is my first_day"; re.split(" |-|_", x) # ['today', 'is', 'my', 'first', 'day']
+
+
+# remove non empty folder ............... shutil.rmtree(folder_name, ignore_errors=True)
+
+# a = b = 4
+
+# hardcoded constants ko __init__ sy bhit pehly likh lety hen, or un ko self.var_name sy call kar lety hen.
