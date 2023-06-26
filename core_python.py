@@ -715,3 +715,5 @@ sys.platform #'linux'
 
 # padding .... format(x, f'>{pad}')
 
+# Getting only unique value without loosing order .......... arr_unique = list(dict.fromkeys(x))
+
