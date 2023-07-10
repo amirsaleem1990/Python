@@ -1,0 +1,5 @@
+Use `@profile` decorator on the function defination
+Save the file
+kernprof -l -v your_file_name.py
+python3 -m line_profiler ab.py.lprof
+
