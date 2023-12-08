@@ -695,7 +695,7 @@ sys.platform #'linux'
 
 
 
-Check python script errors before executing it .............. pylint --errors-only script.py
+# Check python script errors before executing it .............. pylint --errors-only script.py
 
 # smallest number possible : float("-inf") .............. usage: agar hame loop chala kar largest number find karna ho to ham largest_number variable ko ksi small number sy initialize karen gy.
 
@@ -707,3 +707,13 @@ Check python script errors before executing it .............. pylint --errors-on
 # a = b = 4
 
 # hardcoded constants ko __init__ sy bhit pehly likh lety hen, or un ko self.var_name sy call kar lety hen.
+
+# Add 20 seconds in the time ......... from datetime import datetime, timedelta; time_str = "00:00:19"; time_format = "%H:%M:%S"; time_obj = datetime.strptime(time_str, time_format); (time_obj + timedelta(seconds=20)).strftime(time_format)#  Output: 00:00:39
+
+
+# One of the built-in functions of Python is divmod, which takes two arguments and and returns a tuple containing the quotient of first and then the remainder. ........  divmod(177,10) # (17, 7)
+
+# padding .... format(x, f'>{pad}')
+
+# Getting only unique value without loosing order .......... arr_unique = list(dict.fromkeys(x))
+
