@@ -1,3 +1,6 @@
+✅
+❌
+
 # create a dict with juct 2 lists,
 dict(zip('amir kamran ajmal noman'.split(), [28, 22, 40, 27]))
 # {'ajmal': 40, 'amir': 28, 'kamran': 22, 'noman': 27}
