@@ -721,3 +721,9 @@ sys.platform #'linux'
 # Getting only unique value without loosing order .......... arr_unique = list(dict.fromkeys(x))
 
 # Open a text file in the terminal in the python script  using nano ............... os.system(f"${{EDITOR:-nano}} /tmp/done.txt")
+
+# except (requests.exceptions.RequestException, requests.exceptions.ConnectTimeout, requests.exceptions.ReadTimeout) as e:
+# x = y or z # None will skipped
+# print("", file=sys.stderr)
+# 0<4<4
+
